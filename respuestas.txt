@@ -1,0 +1,263 @@
+18. Escriba el programa que muestra por la consola la frase "Hola Mundo"
+. ¿Qué significado tiene la salida? ( puts ’Hola Mundo’):
+
+
+Al objeto puts se le pasa como argumento la cadena hola mundo, cuyo objeto de la función es imprimir en pantalla la cadena y poner nueva linea, puts devuelve nill
+
+21. ¿Qué diferencia hay entre "\t\n" y ’\t\n’?
+
+
+Con comilla doble los caracteres tabulador y nueva linea actúan usando por ejemplo puts, sin embargo con comilla simple se imprime la cadena sin afectar los caracteres especiales. 
+
+
+22. ¿Cómo funciona %q ? ¿Qué es %q{hello world\n} ? ¿Qué es %q{’a’ ’b’ ’c’} ?
+
+Ruby las comillas puede agregarlas por ti haciendo uso de la siguiente notación %q(comillas simples).
+
+Con %q{hello world\n} es lo mismo que poner comillas simples, por lo que el carácter nueva linea no tendrá el efecto esperado con el puts.
+Con %q{’a’ ’b’ ’c’} se imprimirán correctamente las comillas simples dentro de la cadena. Concatenando los tres objetos a,b,y c.
+
+23. ¿Cómo funciona %Q ? ¿Qué es %Q{hello world\n} ? ¿Qué es %Q{"a" "b" "c"} ?
+
+%Q(comillas dobles).
+En este ejemplo %Q{hello world\n} es igual a poner “ hello world\n ”
+Y %Q{"a" "b" "c"} es lo mismo que "\"a\" \"b\" \"c\"" para que las dobles comillas se puedan ingresar en una cadena es necesaria esta anotación (\”).
+
+24. 	--4--
+	--2--
+
+25.
+--#{a}--\n--{b}--\n
+
+26. ¿Cuál es el valor de las siguientes expresiones?
+
+s = "hello"
+
+s[0,2]  muestra “he”, desde el comienzo dos caracteres.
+S[-1,1] muestra “o”, desde el final un carácter
+s[0,10] muestra “hello”, desde comienzo 10 caracteres, todo.
+
+27. ¿Qué queda en g ? 
+la cadena “ hello world” concatenando las dos cadenas.
+
+28. ¿Qué queda en e ?
+“...” concatena tres veces la cadena “.”
+
+29. ¿Cuál es el resultado? 
+“2 2 2”    Repite tres veces el a=a+1 
+
+
+30. ¿Qué es esto? %w[this is a test]
+
+Es un array de 3 elementos de caracteres y %w es un atajo a la hora de declararlo.
+["this", "is", "a", "test"]
+
+31. Es este array
+
+[“\\t”, “\\n”] #Es un array donde se guarda la cadena \t y \n tal cual, si no tubieran la \ delante 
+serían un retorno de carro.
+["\\t", "\\n"]
+
+32. Se guarda la expresión evaluada, en este caso un retorno de carro.
+["\t", "\n"]
+
+33.
+Crea un array con tres objetos nill
+
+[nil, nil, nil]
+
+
+34.
+tres elementos con valor cero
+
+35.
+ [[1, 2], [3, 4]] crea una copia del array x
+
+36.
+[0, 2, 4] #utiliza el iterador i
+
+37.
+a)a[1,1]   ["b"]
+b)a[-2,2]  ["d", "e"]
+c)a[0..2]  ["a", "b", "c"]
+d)a[0...1] ["a"]
+e)a[-2..-1]["d", "e"]
+
+38.
+a)a[0,2] = %w{A B}	["A", "B", "c", "d", "e"]
+b)a[2..5] = %w{C D E}	["A", "B", "C", "D", "E"]
+c)a[0,0] = [1,2,3]	[1, 2, 3, "A", "B", "C", "D", "E"]
+d)a[0,2] = []		[3, "A", "B", "C", "D", "E"]
+e)a[-1,1] = [ ’Z’ ]	[3, "A", "B", "C", "D", "Z"]
+f)a[-2,2] = nil		[3, "A", "B", "C", nil]
+
+39.
+a) a = (1...4).to_a	# un array de enteros de 1 a 4
+b)a = a + [4, 5]	# se le añade al array 4, 5
+c)a += [[6, 7, 8]]	# si no están los valores se le añaden al array
+d)a = a + 9		# da un error no reconoce el numero como un array abría que poner a = a + [9]
+
+
+40.
+a) ["a", "b", "c", "b", "a"] array de 5 elementos
+b)["a", "a"]  se le restan los elementos al array
+
+41.
+crea un array de 8 elementos en los que se almacena ceros.
+[0, 0, 0, 0, 0, 0, 0, 0]
+
+42.
+a) a = []	 un array vacio
+b) a << 1	 se añade el numero al array  [1]
+c) a << 2 << 3	 se añade 2, 3 al array  [1, 2, 3]
+d)a << [4, 5, 6] se añade al array como un único objeto que almacena los 3 valores. [1, 2, 3, [4, 5, 6]]
+e)a.concat [7, 8]	se utilizan para contatenar elementos en un array  [1, 2, 3, [4, 5, 6], 7, 8]
+
+43.
+a)[1, 1, 2, 2, 3, 3, 4]
+b)[5, 5, 4, 4, 3, 3, 2] 
+c)c = a | b	[1, 2, 3, 4, 5]  #están los valores que están en a o b
+d)d = b | a	[5, 4, 3, 2, 1]  #están los valores que están en b o a
+e)e = a & b	[2, 3, 4] #están los valores que están en a y b
+f)f = b & a	[4, 3, 2] #están los valores que están en b y a
+
+44.
+a)a = 1..10 #En a se almacena un rango de 1 a 10.
+
+b)a.class #Dice de que tipo es el elemento a
+
+c)a.to_a
+	=>[1,2,3,4,5,6,7,8,9,10]
+d)b = 1...10
+ b.to_a
+[1,2,3,4,5,6,7,8,9,10]
+e)b.include? 10 # Responde a si en b esta el valor 10
+true
+f) b.include? 8
+true
+g) b.step(2) {|x| print "#{x} " } #Muestra de 2 en 2 los valores de b.
+1 3 5 7 9 => 1...10
+h) 1..3.to_a
+Da un error no reconoce 1..3 como un array sino como un número.
+
+45.
+a) r = 0...100 #En a se almacena un rango de 1 a 100.
+=> 0....100
+b) r.member? 50 #Responde si 50 es miembro
+=>true
+c) r.include? 99.9 #Responde si 99.9 esta incluido en el rango.
+=>true
+d) r.member? 99.9 #Responde si 99.9 es miembro
+=>true
+
+46.
+a) true.class
+=>TrueClass
+b) false.class
+=>FalseClass
+c) puts "hello" if 0 #Se evalua como verdad por que falta la condición. ¿ 0 es verdad?
+hello
+=>nil
+d) puts "hello" if nil 
+	=>nil
+ puts "hello" if ""
+hello
+=>nil
+
+47.
+a) x = :sym # En x se guarda un símbolo.
+=> :sym
+ x.class
+=>Symbol
+b) x == ’sym’ # Un símbolo no es una cadena por eso retorna false.
+=>false
+c) x == :sym 
+=>true
+d) z = :’a long symbol’
+=> :"a long symbol"
+e) z.class
+=>Symbol
+f) x == ’sym’.to_sym #Convierte ‘sym’ en un símbolo y lo compara
+=>true
+g) x.to_s == ’sym’ #Convierte x es un string y lo compara
+=>true
+
+48.
+
+a)s = "Ruby"
+=> "Ruby"
+b) t = s
+=> "Ruby"
+c) t[-1] = ""
+=> ""
+d) print s
+Rub => nil
+e) t = "Java"
+=> "Java"
+f) print s, t
+Rub Java => nil
+
+49.
+Evalúa las % y los intercambia por lo que está a la derecha, como un printf de c, %d equivale a dígito y %s a un string.
+
+50.
+a) x, y = 4, 5  # Crea dos variables y les asigna un valor.
+=>[4, 5]
+b) z = x > y ? x : y # Responde a la pregunta con la primera opción si es cierto, si es falso la segunda, como en c.
+=>5
+c) x,y,z = [1,2,3] # Crea tres variables y les asigna un valor.
+=>[1, 2, 3]
+
+51.
+a) x = { :a => 1, :b => 2 }
+=> {:a=>2, :b=>1}
+b) x.keys	#Muestra las claves de x
+=>[:a, :b]
+c) x.values 	#Muestra los valores de x
+=>[1,2]
+d) x[:c] = 3	# Añade una objeto al hash
+=> 3
+e) x
+=>{:a=>1, :b=>2, :c=3}
+f) x.delete(’a’)	 #No hace nada un string no es igual a la clave.
+=> nil
+g) x
+=>{:a=>1, :b=>2, :c=3}
+H) x.delete(:a) 	#Borra una variable usando la clave.
+=> 1
+i) x
+=>{:b=>2, :c=3}
+j) x = { :a => 1, :b => 2, :c => 4 }
+=> {:a=>1, :b=>2, :c=>4}
+k) x.delete_if { |k,v| v % 2 == 0 } #Borra según la condición, divisible por 2.
+=>{:a=>1}
+l) x
+=>{:a=>1}
+ll)
+52.
+
+Estamos proporcionando parámetros a la llamada a yield, los cuales serán pasados al bloque. Dentro del bloque, los nombres de los argumentos estarán listados mediante barras verticales (|) para recibir estos parámetros.
+53.
+
+a)Los elementos del Hash son inicializados a 0 automáticamente en el primer caso.
+
+b)En el segundo a nil.
+
+54.
+
+[“hello”, “world”, “hello”, “LPP”] 	#Te devuelve las palabras que tiene la frase, creando un array.
+
+55.
+
+
+c = { :a => 3, :b => 2, :c => 1 }
+{ :a => 3, :b => 2, :c => 1 }   // Crea un hash de 3 elementos asignando la clave y el valor.
+c.keys.sort.each { |k| puts c[k] } // Por cada clave k muestra un valor.
+3
+2
+1
+	=>[:a, :b, :c]
+
+
+
+
